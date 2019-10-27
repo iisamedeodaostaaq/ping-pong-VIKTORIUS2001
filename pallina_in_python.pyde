@@ -48,6 +48,13 @@ def tocca_rac2(xpos,ypos,xrac2,yrac2,yVers):
         return(True)
     else:
         return(False)
+    
+def rac1_rac2_confini(xrac1,xrac2):
+    if (xrac1>=width) or (xrac1<=0):
+        xrac1=0
+    
+    if (xrac2>=width) or (xrac2<=0):
+        xrac2=0
         
 def draw():
     global xpos,ypos,xVers,yVers,r,g,b,r2,b2,g2,xrad,yrad,xrad2,yrad2,xrac1,yra1,xrac2,score1,score2
@@ -77,6 +84,13 @@ def draw():
     if tocca_rac2(xpos,ypos,xrac2,yrac2,yVers):
         yVers*=-1
         
+    if (xrac1>=width) or (xrac1<=0):
+        xrac1=0
+    
+    if (xrac2>=width) or (xrac2<=0):
+        xrac2=0
+    
+    rac1_rac2_confini(xrac1,xrac2) 
    
 
     fill(255,255,255)    
@@ -96,10 +110,27 @@ def draw():
     
     if(ypos<=xrad/2):
         score1=score1+1
+    if score1 >= 5:
+        textSize(50)
+        fill(255,255,255)  
+        text("giocarore 1 ha vinto",100,height/2)
+        textSize(30)
+        fill(255,255,255)  
+        text("premere E per uscire",100,(height/2)+40)   
+        
     
     if(ypos>=height-xrad/2):
-        print("incremento")
         score2=score2+1
+    if score2 >= 5:
+        textSize(50)
+        fill(255,255,255)  
+        text("giocarore 2 ha vinto",100,height/2)
+        textSize(30)
+        fill(255,255,255)  
+        text("premere E per uscire",100,(height/2)+40)
+        
+        
+        
         
     
 
@@ -113,6 +144,8 @@ def keyPressed():
         xrac2-=15
     if(key=="d"):
         xrac2+=15
+    if(key=="e"):
+        exit()
     
 
 
