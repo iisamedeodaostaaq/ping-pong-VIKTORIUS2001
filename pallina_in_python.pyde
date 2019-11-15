@@ -1,3 +1,5 @@
+## Prof.: Non ci sono commenti: codice non manutenibile
+## Prof.: comment anche le funzioni: cosa fanno?
 r=0
 g=0
 b=0
@@ -5,9 +7,11 @@ r2=0
 g2=0
 b2=0
 xrac1=330
+## Prof.: non è chiaro perchè -25
 yrac1=600-25
 xrac2=330
 yrac2=0
+## Prof.: usa nomi di variabili significativi
 xrad=50
 yrad=50
 xrad2=0
@@ -24,6 +28,7 @@ def setup():
     xpos=200
     ypos=200
     size(800,600)
+## Prof.: Disegnare nel setup non ha molto senso
     background(62)
     fill(0,255,0)
     rect(60,4,100,140)
@@ -38,6 +43,7 @@ def setup():
     
     
 def tocca_rac1(xpos,ypos,xrac1,yrac1,yVers):
+## Prof.: Fai riferimento alle variabili
     if(ypos>=yrac1-25 and (xpos+25>xrac1 and xpos-25<xrac1+100) ):
         return(True)
     else:
@@ -50,6 +56,7 @@ def tocca_rac2(xpos,ypos,xrac2,yrac2,yVers):
         return(False)
     
 def rac1_rac2_confini(xrac1,xrac2):
+## Prof.: Le racchette escono dal campo verso destra e rientrano a sinistra 
     if (xrac1>=width) or (xrac1<=0):
         xrac1=0
     
